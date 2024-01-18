@@ -1,45 +1,88 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React, {useState} from 'react';
+import type {PropsWithChildren} from 'react';
+import {View, StyleSheet, StatusBar, SafeAreaView} from 'react-native';
+import {Provider} from 'react-redux';
+import {persistStore} from 'redux-persist';
+import {PersistGate} from 'redux-persist/integration/react';
+import {ActivityIndicator} from 'react-native-paper';
+import {Linking, Platform} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AuthContextProvider } from './src/common/context/auth/auth.context';
+import UserContextProvider from './src/common/context/user';
+import Router from './src/common/router';
+import store from './src/common/redux/store';
 
-import React from 'react';
-import type { PropsWithChildren } from 'react';
-import {
-  Platform,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+const PERSISTENCE_KEY = 'NAVIGATION_STATE_V1';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import HomeScreen from './src/screen/home';
+let persistor = persistStore(store);
+function App(): JSX.Element {
+  const [isReady, setIsReady] = React.useState(false);
+  const [initialState, setInitialState] = React.useState();
 
-export default function App() {
+  React.useEffect(() => {
+    const restoreState = async () => {
+      try {
+        const initialUrl = await Linking.getInitialURL();
+
+        if (Platform.OS !== 'web' && initialUrl == null) {
+          // Only restore state if there's no deep link and we're not on web
+          const savedStateString = await AsyncStorage.getItem(PERSISTENCE_KEY);
+          const state = savedStateString
+            ? JSON.parse(savedStateString)
+            : undefined;
+
+          if (state !== undefined) {
+            setInitialState(state);
+          }
+        }
+      } finally {
+        setIsReady(true);
+      }
+    };
+
+    if (!isReady) {
+      restoreState();
+    }
+  }, [isReady]);
+  if (!isReady) {
+    return <View style={{flex:1,flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
+      <ActivityIndicator size={15} color="blue" />
+    </View>;
+  }
+
   return (
     <SafeAreaView style={styles.container}>
-    <HomeScreen/>
+      <Provider store={store}>
+        <PersistGate loading={<ActivityIndicator size={25} color="indigo" />} persistor={persistor}>
+          <AuthContextProvider>
+            <UserContextProvider>
+                <Router />
+            </UserContextProvider>
+          </AuthContextProvider>
+        </PersistGate>
+      </Provider>
     </SafeAreaView>
-
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:"#f1f1f1",
-    paddingTop: Platform.OS === 'ios' ? 20 : 0, // Ajustez la valeur en conséquence
+    justifyContent: 'center',
+    backgroundColor: '#ECF0F1',
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: '600',
+  },
+  sectionDescription: {
+    marginTop: 8,
+    fontSize: 18,
+    fontWeight: '400',
+  },
+  highlight: {
+    fontWeight: '700',
   },
 });
+
+export default App;

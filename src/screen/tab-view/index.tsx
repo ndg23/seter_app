@@ -56,8 +56,10 @@ export const TabViewComponent = () => {
         }}
         containerStyle={{
           backgroundColor:'navy',
-          borderRadius:10,
           borderTopRightRadius:5,
+          borderBottomRightRadius:5,
+          borderTopLeftRadius:5,
+          borderBottomLeftRadius:5,
         
           padding:0,
           
