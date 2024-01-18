@@ -9,7 +9,7 @@ import {Linking, Platform} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AuthContextProvider } from './src/common/context/auth/auth.context';
 import UserContextProvider from './src/common/context/user';
-import Router from './src/common/router';
+import Router from './src/common/router/router-auth';
 import store from './src/common/redux/store';
 
 const PERSISTENCE_KEY = 'NAVIGATION_STATE_V1';

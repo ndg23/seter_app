@@ -42,6 +42,7 @@
     "react-native-gesture-handler": "^2.14.1",
     "react-native-image-picker": "^7.0.0",
     "react-native-input-select": "^0.35.0",
+    "react-native-international-phone-number": "^0.7.6",
     "react-native-keychain": "^5.0.1",
     "react-native-modal": "^13.0.1",
     "react-native-pager-view": "^6.2.3",
@@ -63,6 +64,7 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "6.0.0",
     "redux-thunk": "^2.4.2",
+    "rn-phone-number-input": "^0.3.2",
     "socket.io-client": "^2.1.1",
     "styled-components": "^6.1.8",
     "yup": "^1.2.0"

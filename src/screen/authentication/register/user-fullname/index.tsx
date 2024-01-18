@@ -28,7 +28,7 @@ import {
             style={{
               fontSize: 25,
               fontWeight: '700',
-              color: 'indigo',
+              color: 'black',
             }}>
             Quel est votre nom ?
           </Text>
@@ -81,6 +81,7 @@ import {
       width: '100%',
       marginBottom: '10%',
       marginTop: '5%',
+      backgroundColor:"white",
       borderColor: '#ccc',
       borderRadius: 5,
       paddingHorizontal: 10,

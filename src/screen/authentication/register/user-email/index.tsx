@@ -42,15 +42,15 @@ import {
               fontWeight: '700',
               color: 'indigo',
             }}>
-            Quel est ton email ?
+            Quel est votre email ?
           </Text>
-          <Text>Cette information va t'aider a te connecter ou a te contacter en cas de probleme</Text>
+          <Text>Cette information va nous aider à vous connecter ou à vous contacter en cas de probleme</Text>
   
           {exist && <Text style={{ color: "red", marginTop: "5%" }}>Cet email existe</Text>}
   
           <TextInput
             style={styles.input}
-            placeholder="anto@jober.com"
+            placeholder="anto@seterapp.com"
             onChangeText={text => setEmail({ email: text })}
             autoCapitalize="none"
             label={'Adresse email'}
@@ -102,6 +102,7 @@ import {
       width: '100%',
       marginBottom: '10%',
       borderColor: '#ccc',
+      backgroundColor:"white",
       borderRadius: 5,
       paddingHorizontal: 10,
     },

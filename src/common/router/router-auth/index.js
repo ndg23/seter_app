@@ -2,12 +2,13 @@ import React from "react";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "../../../screen/home";
-import { NavigationContainer } from '@react-navigation/native';
+// import { NavigationContainer } from '@react-navigation/native';
 import Entypo from 'react-native-vector-icons/Entypo';
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+// import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useAuthContext } from '../context/auth/auth.context';
-import AuthStack from './auth.navigation';
+import { useAuthContext } from "../../context/auth/auth.context";
+import AuthStack from "./auth.stack";
+
 
 const Tab = createNativeStackNavigator()
 

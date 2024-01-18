@@ -1,74 +1,98 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, TextInput, TouchableOpacity, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import PhoneInput, { ICountry } from 'react-native-international-phone-number';
 
 interface PhoneNumberInputProps {
   onPhoneNumberSubmit: (phoneNumber: string) => void;
 }
 
-const PhoneNumberInput: React.FC<PhoneNumberInputProps> = ({ onPhoneNumberSubmit }) => {
-  const [phoneNumber, setPhoneNumber] = useState('');
+const PhoneNumberInput: React.FC<PhoneNumberInputProps> = ({
+  onPhoneNumberSubmit,
+}) => {
+  const [selectedCountry, setSelectedCountry] = useState<null | ICountry>(null);
+  const [inputValue, setInputValue] = useState<string>('');
 
-  const handlePhoneNumberChange = (value: string) => {
-    setPhoneNumber(value);
-  };
+  function handleInputValue(phoneNumber: string) {
+    setInputValue(phoneNumber);
+  }
 
-  const handleSubmit = () => {
-    onPhoneNumberSubmit(phoneNumber);
-  };
+  function handleSelectedCountry(country: ICountry) {
+    setSelectedCountry(country);
+  }
+
+  function handleSubmit() {
+    const formattedPhoneNumber = `${selectedCountry?.callingCode} ${inputValue}`;
+    onPhoneNumberSubmit(formattedPhoneNumber);
+  }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Entrez votre numéro de téléphone</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Numéro de téléphone"
-        keyboardType="phone-pad"
-        value={phoneNumber}
-        onChangeText={handlePhoneNumberChange}
+      <Text style={styles.title}>Veuillez entrer votre numéro de téléphone</Text>
+      <Text style={styles.explanation}>
+        Veuillez saisir votre numéro de téléphone ci-dessous. Nous vous enverrons un code de vérification.
+      </Text>
+      <PhoneInput
+        value={inputValue}
+        defaultCountry='SN'
+        placeholder="7774939..."
+        focusable={true}
+        modalSearchInputPlaceholder="Rechercher votre pays"
+        modalNotFoundCountryMessage="Pays non trouvé"
+        popularCountries={['SN', 'GA', 'CI', 'CM','CI']}
+
+        accessibilityLabel='Contact'
+        onChangePhoneNumber={handleInputValue}
+        selectedCountry={selectedCountry}
+        onChangeSelectedCountry={handleSelectedCountry}
       />
+
       <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
-        <Text style={styles.submitButtonText}>Continuer</Text>
+        <Text style={styles.submitButtonText}>Valider</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    title: {
-      fontSize: 18,
-      marginBottom: 20,
-      textAlign: 'center',
-    },
-    input: {
-      width: 300,
-      height: 40,
-      borderWidth: 1,
-      borderColor: '#777',
-      borderRadius: 8,
-      margin: 10,
-      textAlign: 'center',
-      fontSize: 16,
-    },
-    otpContainer: {
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    submitButton: {
-      marginTop: 20,
-      backgroundColor: '#3498db',
-      padding: 10,
-      borderRadius: 8,
-    },
-    submitButtonText: {
-      color: '#fff',
-      fontSize: 16,
-    },
-  });
+  container: {
+    flex: 1,
+    padding: 24,
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 24,
+    marginBottom: 10,
+    fontWeight: 'bold',
+    color: "black",
+    textAlign: 'center',
+  },
+  explanation: {
+    fontSize: 16,
+    marginBottom: 20,
+    textAlign: 'center',
+    color: '#777',
+  },
+  phoneNumberDetails: {
+    marginTop: 10,
+    alignItems: 'center',
+  },
+  detailText: {
+    fontSize: 14,
+    marginBottom: 5,
+  },
+  submitButton: {
+    marginTop: 20,
+    backgroundColor: '#3498db',
+    padding: 15,
+    width: 300,
+    borderRadius: 8,
+  },
+  submitButtonText: {
+    color: '#fff',
+    fontSize: 18,
+    textAlign: 'center',
+  },
+});
 
-  export default PhoneNumberInput
+export default PhoneNumberInput;
