@@ -19,7 +19,7 @@ export default function Router() {
     return (
         <NavigationContainer>
             {
-                signin ? <>
+                !signin ? <>
                     <Tab.Navigator
                         screenOptions={{
                             activeTintColor: '#f15454',

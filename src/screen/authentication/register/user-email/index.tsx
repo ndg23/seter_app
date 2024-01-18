@@ -40,11 +40,11 @@ import {
             style={{
               fontSize: 25,
               fontWeight: '700',
-              color: 'indigo',
+              color: '#8A131F',
             }}>
             Quel est votre email ?
           </Text>
-          <Text>Cette information va nous aider à vous connecter ou à vous contacter en cas de probleme</Text>
+          <Text style={{color:"black"}}>Cette information va nous aider à vous connecter ou à vous contacter en cas de probleme</Text>
   
           {exist && <Text style={{ color: "red", marginTop: "5%" }}>Cet email existe</Text>}
   
@@ -59,7 +59,7 @@ import {
           <TouchableOpacity
             style={styles.button}
             onPress={()=>checkIfEmailExist()}>
-            {load ? <ActivityIndicator size={30} color='indigo' /> : <Octicons name="arrow-right" color="indigo" size={30} />
+            {load ? <ActivityIndicator size={30} color='#8A131F' /> : <Octicons name="arrow-right" color="#8A131F" size={30} />
             }
           </TouchableOpacity>
         </View>
@@ -74,7 +74,8 @@ import {
       flex: 1,
       backgroundColor: 'white',
       padding: 10,
-  
+      flexDirection:"column",
+      gap:10,
       marginTop:"15%"
     },
     button: {

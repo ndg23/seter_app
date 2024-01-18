@@ -5,7 +5,7 @@ const CardComponent = () => {
   return (
     <View style={styles.card}>
       <View style={styles.cardContent}>
-        <Text style={styles.title}>19500</Text>
+        <Text style={styles.title}>19.500</Text>
         <Text style={styles.subtitle}>Sous-titre</Text>
       </View>
     </View>
@@ -18,14 +18,17 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#fff', // Nouvelle couleur
     borderTopWidth: 5, // Largeur de la bordure supérieure
+    borderTopEndRadius:10,
+    borderTopLeftRadius:10,
     borderTopColor: '#8A131F', // Couleur de la bordure supérieure
-    borderRadius: 23,
-    width: 350,
-    height: 130,
-    margin: 10,
+    borderRadius: 10,
+    width: 370,
+    height: 150,
+    margin: 2,
+    alignSelf:"center"
   },
   cardContent: {
-    padding: 20,
+    padding: 10,
   },
   title: {
     fontSize: 30,

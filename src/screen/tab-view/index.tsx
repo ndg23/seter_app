@@ -50,28 +50,28 @@ export const TabViewComponent = () => {
         value={index}
         onChange={(e) => setIndex(e)}
         indicatorStyle={{
-          backgroundColor: 'white',
-          
+          backgroundColor: '#8A131F',
+          borderEndColor:"#8A131F",
           height: 2,
         }}
+        style={{
+          margin:5
+      ,
+          borderRadius:10
+        }}
         containerStyle={{
-          backgroundColor:'navy',
-          borderTopRightRadius:5,
-          borderBottomRightRadius:5,
-          borderTopLeftRadius:5,
-          borderBottomLeftRadius:5,
-        
+          backgroundColor:'#fff',
           padding:0,
           
         }}
       >
         <Tab.Item
           title="Programme"
-          titleStyle={{ fontSize: 20,color:"white" }}
+          titleStyle={{ fontSize: 20,color:"#8A131F" }}
         />
         <Tab.Item
           title="Voyages"
-          titleStyle={{ fontSize: 20,color:"white" }}
+          titleStyle={{ fontSize: 20,color:"#8A131F" }}
         />
       
       </Tab>

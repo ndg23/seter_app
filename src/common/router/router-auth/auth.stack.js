@@ -14,17 +14,17 @@ export default function AuthStack() {
         activeTintColor: '#f15454',
         headerShown: false,
       }}
-      initialRouteName='Email'
+      initialRouteName='Phone'
     >
       <Tab.Screen
         name="Phone"
         component={PhoneNumberInput}
         options={{
-          title: "Acceuil",
+          title: "Phone",
           headerShown: false,
           tabBarIcon: ({ color }) => (
             <Entypo
-              name="home"
+              name="phone"
               size={24}
               color={color}
             />

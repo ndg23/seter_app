@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import PhoneInput, { ICountry } from 'react-native-international-phone-number';
@@ -11,6 +12,7 @@ const PhoneNumberInput: React.FC<PhoneNumberInputProps> = ({
 }) => {
   const [selectedCountry, setSelectedCountry] = useState<null | ICountry>(null);
   const [inputValue, setInputValue] = useState<string>('');
+  const navigation=useNavigation()
 
   function handleInputValue(phoneNumber: string) {
     setInputValue(phoneNumber);
@@ -36,11 +38,13 @@ const PhoneNumberInput: React.FC<PhoneNumberInputProps> = ({
         defaultCountry='SN'
         placeholder="7774939..."
         focusable={true}
+        autoFocus={true}
+        customMask={["## ### ## ## ","##########"]}
         modalSearchInputPlaceholder="Rechercher votre pays"
         modalNotFoundCountryMessage="Pays non trouvé"
         popularCountries={['SN', 'GA', 'CI', 'CM','CI']}
 
-        accessibilityLabel='Contact'
+        accessibilityLabel='Numéro de téléphone'
         onChangePhoneNumber={handleInputValue}
         selectedCountry={selectedCountry}
         onChangeSelectedCountry={handleSelectedCountry}

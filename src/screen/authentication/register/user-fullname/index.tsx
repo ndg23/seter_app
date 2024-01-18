@@ -44,7 +44,7 @@ import {
           <TouchableOpacity
             style={[styles.button]}
             onPress={() => navigation.navigate('Password', { ...data, fullname: fullname })}>
-            <Octicons name="arrow-right" color="indigo" size={30} />
+            <Octicons name="arrow-right" color="#8A131F" size={30} />
           </TouchableOpacity>
         </View>
       </View>
@@ -56,6 +56,8 @@ import {
       flex: 1,
       padding: 10,
       marginTop: "15%",
+      flexDirection:"column",
+      gap:10
     },
     button: {
       height: 60,
@@ -73,7 +75,7 @@ import {
     },
     buttonText: {
       fontSize: 18,
-      color: 'indigo',
+      color: '#8A131F',
     },
     input: {
       height: 50,
