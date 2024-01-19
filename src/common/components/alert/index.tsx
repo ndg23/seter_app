@@ -7,6 +7,8 @@ const AlertContainer = styled.View`
   background-color: #ffffff;
   padding: 10px;
   border-radius: 10px;
+  border-left:5px;
+  border-color:red;
   margin: 5px;
 `;
 

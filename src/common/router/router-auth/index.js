@@ -8,6 +8,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuthContext } from "../../context/auth/auth.context";
 import AuthStack from "./auth.stack";
+import SettingScreen from "../../../screen/setting";
 
 
 const Tab = createNativeStackNavigator()
@@ -29,7 +30,7 @@ export default function Router() {
                     >
                         <Tab.Screen
                             name="Home"
-                            component={HomeScreen}
+                            component={SettingScreen}
                             options={{
                                 title: "Acceuil",
                                 headerShown: false,
