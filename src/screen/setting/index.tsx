@@ -35,7 +35,10 @@ const SettingScreen: React.FC = () => {
   const changeCurrency = () => {}; // You can implement currency selection logic here
   const changeDistanceUnit = () => {}; // You can implement distance unit selection logic here
   const changeTravelMode = () => {}; // You can implement travel mode selection logic here
-
+  const handleLogout = () => {
+    // Add logic to handle user logout
+    console.log('User logged out');
+  };
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
       {/* Custom Header */}
@@ -99,6 +102,13 @@ const SettingScreen: React.FC = () => {
 
       </View>
 
+      <View style={styles.sectionContainer}>
+        <TouchableOpacity onPress={handleLogout} style={styles.logoutButton}>
+          <Ionicons name="log-out" size={24} color="#FF0000" />
+          <Text style={styles.logoutButtonText}>Déconnexion</Text>
+        </TouchableOpacity>
+      </View>
+
 
       {/* Add more section containers and TouchableOpacity components for each setting section */}
 
@@ -142,7 +152,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     textAlign: "right",
     marginLeft: "auto",
-    color: '#007AFF',
+    color: '#000',
   },
   copyrightContainer: {
     marginTop: 16,
@@ -151,6 +161,16 @@ const styles = StyleSheet.create({
   copyrightText: {
     fontSize: 12,
     color: '#777',
+  },
+
+  logoutButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+  },
+  logoutButtonText: {
+    marginLeft: 8,
+    color: '#FF0000',
   },
 });
 
