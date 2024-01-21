@@ -1,6 +1,6 @@
 // Import necessary modules from React Native
 import React from 'react';
-import { StyleSheet, Text, View, Switch , TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Switch, TouchableOpacity, ScrollView } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
@@ -39,40 +39,35 @@ const SettingScreen: React.FC = () => {
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
       {/* Custom Header */}
-      <Header />
+      {/* <Header /> */}
 
       <View style={styles.sectionContainer}>
-
-      <TouchableOpacity onPress={changeTravelMode} style={styles.settingItem}>
+        <Text style={styles.sectionTitle}>Informations Personnelles</Text>
+        <TouchableOpacity onPress={changeTravelMode} style={styles.settingItem}>
           <FontAwesome5 name="user-alt" size={24} color="#007AFF" />
-          <Text style={{marginLeft:8,color:"black"}}> Moi</Text>
+          <Text style={{ marginLeft: 8, color: "black" }}> Moi</Text>
           <Text style={styles.languageText}>@Anto</Text>
         </TouchableOpacity>
+      </View>
 
+      <View style={styles.sectionContainer}>
+        <Text style={styles.sectionTitle}>Notifications</Text>
         <TouchableOpacity style={styles.settingItem}>
           <Ionicons name="notifications" size={24} color="#007AFF" />
-          <Text style={{marginLeft:8,color:"black"}}> Notifications</Text>
-          <Switch style={styles.languageText}  value={notification} onValueChange={toggleNotification} />
+          <Text style={{ marginLeft: 8, color: "black" }}> Notifications</Text>
+          <Switch style={styles.languageText} value={notification} onValueChange={toggleNotification} />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.settingItem}>
           <Ionicons name="mail" size={24} color="#007AFF" />
-          <Text style={{marginLeft:8,color:"black"}}> Notifications par email</Text>
+          <Text style={{ marginLeft: 8, color: "black" }}> Notifications par email</Text>
           <Switch style={styles.languageText} value={emailNotification} onValueChange={toggleEmailNotification} />
         </TouchableOpacity>
+      </View>
 
-        <TouchableOpacity style={styles.settingItem}>
-          <Ionicons name="moon" size={24} color="#007AFF" />
-          <Text style={{marginLeft:8,color:"black"}}> Mode Sombre</Text>
-          <Switch style={styles.languageText}  value={darkMode} onValueChange={toggleDarkMode} />
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={changeLanguage} style={styles.settingItem}>
-          <Ionicons name="language" size={24} color="#007AFF" />
-          <Text style={{marginLeft:8,color:"black"}}> Langue</Text>
-          <Text style={styles.languageText}>{language}</Text>
-        </TouchableOpacity>
-
+      <View style={styles.sectionContainer}>
+        <Text style={styles.sectionTitle}>Securite</Text>
+        
         <TouchableOpacity style={styles.settingItem}>
           <Ionicons name="lock-closed" size={24} color="#007AFF" />
           <Text style={{marginLeft:8,color:"black"}}> Protection par mot de passe</Text>
@@ -85,24 +80,27 @@ const SettingScreen: React.FC = () => {
           <Switch style={styles.languageText} value={autoLogout} onValueChange={toggleAutoLogout} />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={changeCurrency} style={styles.settingItem}>
-          <Ionicons name="cash" size={24} color="#007AFF" />
-          <Text style={{marginLeft:8,color:"black"}}> Monnaie</Text>
-          <Text style={styles.languageText}>{currency}</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={changeDistanceUnit} style={styles.settingItem}>
-          <Ionicons name="map" size={24} color="#007AFF" />
-          <Text style={{marginLeft:8,color:"black"}}> Unité de Distance</Text>
-          <Text style={styles.languageText}>{distanceUnit}</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={changeTravelMode} style={styles.settingItem}>
-          <Ionicons name="car" size={24} color="#007AFF" />
-          <Text style={{marginLeft:8,color:"black"}}> Mode de Voyage</Text>
-          <Text style={styles.languageText}>{travelMode}</Text>
-        </TouchableOpacity>
       </View>
+
+      <View style={styles.sectionContainer}>
+        <Text style={styles.sectionTitle}>Parametres de l'application</Text>
+        
+        <TouchableOpacity style={styles.settingItem}>
+          <Ionicons name="moon" size={24} color="#007AFF" />
+          <Text style={{marginLeft:8,color:"black"}}> Mode Sombre</Text>
+          <Switch style={styles.languageText}  value={darkMode} onValueChange={toggleDarkMode} />
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={changeLanguage} style={styles.settingItem}>
+          <Ionicons name="language" size={24} color="#007AFF" />
+          <Text style={{marginLeft:8,color:"black"}}> Langue</Text>
+          <Text style={styles.languageText}>{language}</Text>
+        </TouchableOpacity>
+
+      </View>
+
+
+      {/* Add more section containers and TouchableOpacity components for each setting section */}
 
       {/* Copyright Section */}
       <View style={styles.copyrightContainer}>
@@ -126,6 +124,12 @@ const styles = StyleSheet.create({
     padding: 16,
     elevation: 0,
   },
+  sectionTitle: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: '#bbb',
+    marginBottom: 8,
+  },
   settingItem: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
@@ -135,9 +139,9 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   languageText: {
-    justifyContent:"flex-end",
-    textAlign:"right",
-    marginLeft:"auto",
+    justifyContent: "flex-end",
+    textAlign: "right",
+    marginLeft: "auto",
     color: '#007AFF',
   },
   copyrightContainer: {
