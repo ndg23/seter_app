@@ -7,16 +7,12 @@ export interface IPublication {
     date: Date;
 }
 export interface IUser {
-    firstname: string;
-    lastname?:string;
+    fullname: string;
     email: string;
     phone: string;
-    password:string;
-    country?:string;
-    competence:string[];
+    password?:string;
     id?:string;
     role: string;
-    skills:any
 }
 
 export interface IToken {

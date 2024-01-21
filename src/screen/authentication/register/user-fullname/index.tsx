@@ -1,4 +1,5 @@
 import {
+  ActivityIndicator,
     StyleSheet,
     Text,
   
@@ -10,15 +11,66 @@ import {
   import { TextInput } from 'react-native-paper';
   
   import { useRoute } from '@react-navigation/native';
+import { UserService } from '../../../../services/user.api';
+import { IUser } from '../../../../types';
+import { useAuthContext } from '../../../../common/context/auth/auth.context';
+import AuthService from '../../../../services/auth.api';
   interface Props {
     navigation: any;
   }
   const AddFullnameScreen: React.FC<Props> = ({ navigation }) => {
     const [fullname, setFullname] = useState('');
+    const [form, setForm] = useState<any>();
+    const { error, message, onLogin, loading } = useAuthContext();
     const [isComplete, setIsComplete] = useState<boolean>(false)
+
+
     const route = useRoute();
     const data: any = route.params;
+    const [loadingForm, setLoadingForm] = useState(false)
+    const [err, setErr] = useState<boolean>(false)
+    const [isSecureText, setIsSecureText] = useState(true); // State to manage secure text visibility
+    const [isFormValid, setIsFormValid] = useState(false); // État pour suivre la validité du formulaire
   
+
+    useEffect(() => {
+      setErr(false)
+      setForm({
+        ...form,
+        email:data.email,
+        phone:data.phone,
+        password:data.phone,
+        role: "User"
+      })
+  console.log('====================================');
+  console.log(form);
+  console.log('====================================');
+  
+
+    }, [data])
+
+
+
+    const handleFormSubmit = async () => {
+   
+        //return;
+        try {
+          setLoadingForm(true)
+          const res = await AuthService.signup({...form,fullName:fullname})
+          
+          onLogin(form.email, form.password)
+          setLoadingForm(false)
+  
+        } catch (error) {
+          setErr(true)
+          setLoadingForm(false)
+          console.log(error);
+          
+        }
+      
+      // Ajoutez ici la logique pour soumettre le formulaire de la personne
+      // Vous pouvez envoyer les données du formulaire à un serveur ou effectuer d'autres actions nécessaires.
+    };
   
   
     return (
@@ -28,11 +80,11 @@ import {
             style={{
               fontSize: 25,
               fontWeight: '700',
-              color: 'black',
+              color: '#8A131F',
             }}>
             Quel est votre nom ?
           </Text>
-          <Text>Ce nom sera affiche sur ton profil et visible en public</Text>
+          <Text>Ce nom sera affiche sur votre profile et visible en public</Text>
           <TextInput
             style={styles.input}
             placeholder="Ex: Anto Ndong"
@@ -42,9 +94,10 @@ import {
             keyboardType="ascii-capable"
           />
           <TouchableOpacity
-            style={[styles.button]}
-            onPress={() => navigation.navigate('Password', { ...data, fullname: fullname })}>
-            <Octicons name="arrow-right" color="#8A131F" size={30} />
+            style={styles.button}
+            onPress={handleFormSubmit}>
+            {loadingForm ? <ActivityIndicator size={30} color='#8A131F' /> : <Octicons name="arrow-right" color="#8A131F" size={30} />
+            }
           </TouchableOpacity>
         </View>
       </View>

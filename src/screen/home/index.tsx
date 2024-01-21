@@ -14,7 +14,7 @@ const HomeScreen = () => {
         <View style={styles.container}>
             {/* Carte en haut */}
             <View>
-                <CardComponent />
+                <CardComponent balance={0} currency={''} cardNumber={''} />
             </View>
             <View style={styles.menu}>
                 <TouchableOpacity onPress={() => navigation.navigate("Moi")} style={styles.iconContainer}>
@@ -23,7 +23,7 @@ const HomeScreen = () => {
                 <TouchableOpacity  style={styles.iconContainer}>
                     <Ionicons name={'location-sharp'} size={40} color={"#8A131F"} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate("Clients")} style={styles.iconContainer}>
+                <TouchableOpacity onPress={() => navigation.navigate("Travel")} style={styles.iconContainer}>
                     <MaterialIcons name={'add'} size={40} color={"#8A131F"} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate("Produit")} style={styles.iconContainer}>

@@ -24,7 +24,7 @@ const PhoneNumberInput: React.FC<PhoneNumberInputProps> = ({
 
   function handleSubmit() {
     const formattedPhoneNumber = `${selectedCountry?.callingCode} ${inputValue}`;
-    onPhoneNumberSubmit(formattedPhoneNumber);
+    navigation.navigate("Email",{phone:inputValue})
   }
 
   return (
@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
-    marginTop: 20,
+    paddingTop: "20%",
+    backgroundColor:"white",
     alignItems: 'center',
   },
   title: {

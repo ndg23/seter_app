@@ -1,12 +1,20 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const CardComponent = () => {
+interface CardComponentProps {
+  balance: number;
+  currency: string;
+  cardNumber: string;
+}
+
+const CardComponent: React.FC<CardComponentProps> = ({ balance, currency, cardNumber }) => {
   return (
     <View style={styles.card}>
       <View style={styles.cardContent}>
-        <Text style={styles.title}>19.500</Text>
-        <Text style={styles.subtitle}>Sous-titre</Text>
+        <Text style={styles.title}>{balance.toFixed(2)}</Text>
+        <Text style={styles.subtitle}>Solde actuel</Text>
+        <Text style={styles.info}>Devise: {currency}</Text>
+        <Text style={[styles.info,{marginLeft:"auto"}]}>Numéro de carte: {cardNumber}</Text>
       </View>
     </View>
   );
@@ -16,16 +24,16 @@ export default CardComponent;
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#fff', // Nouvelle couleur
-    borderTopWidth: 5, // Largeur de la bordure supérieure
-    borderTopEndRadius:10,
-    borderTopLeftRadius:10,
-    borderTopColor: '#8A131F', // Couleur de la bordure supérieure
+    backgroundColor: '#fff',
+    borderTopWidth: 5,
+    borderTopEndRadius: 10,
+    borderTopLeftRadius: 10,
+    borderTopColor: '#8A131F',
     borderRadius: 10,
     width: 370,
     height: 150,
     margin: 2,
-    alignSelf:"center"
+    alignSelf: "center"
   },
   cardContent: {
     padding: 10,
@@ -33,10 +41,15 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: '900',
-    color: '#8A131F', // Texte en blanc pour contraster avec la nouvelle couleur de fond
+    color: '#8A131F',
   },
   subtitle: {
     fontSize: 16,
-    color: '#8A131F', // Texte en blanc pour contraster avec la nouvelle couleur de fond
+    color: '#8A131F',
+  },
+  info: {
+    fontSize: 14,
+    color: '#333',
+    marginTop: 5,
   },
 });

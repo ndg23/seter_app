@@ -1,7 +1,7 @@
 import http from '../../http_common'
 const RES = 'auth'
 
-const signin = async (data: any) => {
+const create = async (data: any) => {
     try {
         const res = await http.post(`${RES}/login`, data);
         return res;
@@ -10,16 +10,21 @@ const signin = async (data: any) => {
     }
 };
 const signup = async (data: any) => {
-    console.log(data);
-    
-    const res = await http.post(`${RES}/signup`, data)
+    const res = await http.post(`${RES}/signup`, data, {
+        headers: {
+            'Content-Type': "multipart/form-data"
+        }
+    });
+    console.log(res);
     return res;
 
 };
-
+const getTravel = (user:string) => {
+    return http.get(`${RES}`);
+};
 const AuthService = {
-    signin,
     signup,
+    getTravel
 };
 
 export default AuthService;

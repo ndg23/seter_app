@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity, Text } from 'react-native';
 
@@ -9,7 +10,7 @@ interface OTPInputProps {
 const OTPInput: React.FC<OTPInputProps> = ({ phoneNumber, onOTPSubmit }) => {
   const [otp, setOTP] = useState(['', '', '', '']);
   const [counter, setCounter] = useState(1000);
-
+const navigation=useNavigation()
   const handleOTPChange = (index: number, value: string) => {
     const newOTP = [...otp];
     newOTP[index] = value;
@@ -24,7 +25,9 @@ const OTPInput: React.FC<OTPInputProps> = ({ phoneNumber, onOTPSubmit }) => {
     return () => clearInterval(timer);
   }, []);
   const handleSubmit = () => {
-    onOTPSubmit(phoneNumber, otp.join(''));
+    // onOTPSubmit(phoneNumber, otp.join(''));
+    navigation.navigate("Email")
+
   };
 
   return (
@@ -57,7 +60,8 @@ const OTPInput: React.FC<OTPInputProps> = ({ phoneNumber, onOTPSubmit }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20,
+    paddingTop: "20%",
+    backgroundColor:"white",
     alignItems: 'center',
   },
   title: {
