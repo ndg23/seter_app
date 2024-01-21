@@ -3,6 +3,8 @@ import React from 'react';
 import { StyleSheet, Text, View, Switch, TouchableOpacity, ScrollView } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Entypo from 'react-native-vector-icons/Entypo';
+
 import { useAuthContext } from '../../common/context/auth/auth.context';
 
 // Custom Header Component
@@ -48,11 +50,7 @@ const SettingScreen: React.FC = () => {
 
       <View style={styles.sectionContainer}>
         <Text style={styles.sectionTitle}>Informations Personnelles</Text>
-        <TouchableOpacity onPress={changeTravelMode} style={styles.settingItem}>
-          <FontAwesome5 name="user-alt" size={24} color="#007AFF" />
-          <Text style={{ marginLeft: 8, color: "black" }}> Moi</Text>
-          <Text style={styles.languageText}>@Anto</Text>
-        </TouchableOpacity>
+      
 
         <TouchableOpacity onPress={changeTravelMode} style={styles.settingItem}>
           <FontAwesome5 name="user-alt" size={24} color="#007AFF" />
@@ -61,15 +59,15 @@ const SettingScreen: React.FC = () => {
         </TouchableOpacity>
 
         <TouchableOpacity onPress={changeTravelMode} style={styles.settingItem}>
-          <FontAwesome5 name="user-alt" size={24} color="#007AFF" />
+          <Entypo name="email" size={24} color="#007AFF" />
           <Text style={{ marginLeft: 8, color: "black" }}> Email</Text>
-          <Text style={styles.languageText}>@Anto</Text>
+          <Text style={styles.languageText}>modifier</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={changeTravelMode} style={styles.settingItem}>
-          <FontAwesome5 name="user-alt" size={24} color="#007AFF" />
-          <Text style={{ marginLeft: 8, color: "black" }}> Con</Text>
-          <Text style={styles.languageText}>@Anto</Text>
+          <Entypo name="phone" size={24} color="#007AFF" />
+          <Text style={{ marginLeft: 8, color: "black" }}> Numero de telephone</Text>
+          <Text style={styles.languageText}>changer</Text>
         </TouchableOpacity>
       </View>
 
@@ -172,7 +170,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     textAlign: "right",
     marginLeft: "auto",
-    color: '#000',
+    color: '#007AFF',
   },
   copyrightContainer: {
     marginTop: 16,
