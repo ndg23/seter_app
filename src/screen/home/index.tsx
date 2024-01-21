@@ -26,7 +26,7 @@ const HomeScreen = () => {
                 <TouchableOpacity onPress={() => navigation.navigate("Station")} style={styles.iconContainer}>
                     <MaterialIcons name={'add'} size={40} color={"#8A131F"} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate("Produit")} style={styles.iconContainer}>
+                <TouchableOpacity onPress={() => navigation.navigate("Ticket")} style={styles.iconContainer}>
                     <MaterialCommunityIcons name={'cards'} size={40} color={"#8A131F"} />
                 </TouchableOpacity>
             </View>

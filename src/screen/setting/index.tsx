@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Switch, TouchableOpacity, ScrollView } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { useAuthContext } from '../../common/context/auth/auth.context';
 
 // Custom Header Component
 const Header: React.FC = () => {
@@ -25,6 +26,7 @@ const SettingScreen: React.FC = () => {
   const [currency, setCurrency] = React.useState('EUR');
   const [distanceUnit, setDistanceUnit] = React.useState('kilomètres');
   const [travelMode, setTravelMode] = React.useState('voiture');
+  const { signin ,onSignOut} = useAuthContext()
 
   const toggleNotification = () => setNotification(!notification);
   const toggleDarkMode = () => setDarkMode(!darkMode);
@@ -49,6 +51,24 @@ const SettingScreen: React.FC = () => {
         <TouchableOpacity onPress={changeTravelMode} style={styles.settingItem}>
           <FontAwesome5 name="user-alt" size={24} color="#007AFF" />
           <Text style={{ marginLeft: 8, color: "black" }}> Moi</Text>
+          <Text style={styles.languageText}>@Anto</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={changeTravelMode} style={styles.settingItem}>
+          <FontAwesome5 name="user-alt" size={24} color="#007AFF" />
+          <Text style={{ marginLeft: 8, color: "black" }}> Nom</Text>
+          <Text style={styles.languageText}>@Anto</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={changeTravelMode} style={styles.settingItem}>
+          <FontAwesome5 name="user-alt" size={24} color="#007AFF" />
+          <Text style={{ marginLeft: 8, color: "black" }}> Email</Text>
+          <Text style={styles.languageText}>@Anto</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={changeTravelMode} style={styles.settingItem}>
+          <FontAwesome5 name="user-alt" size={24} color="#007AFF" />
+          <Text style={{ marginLeft: 8, color: "black" }}> Con</Text>
           <Text style={styles.languageText}>@Anto</Text>
         </TouchableOpacity>
       </View>
@@ -103,7 +123,7 @@ const SettingScreen: React.FC = () => {
       </View>
 
       <View style={styles.sectionContainer}>
-        <TouchableOpacity onPress={handleLogout} style={styles.logoutButton}>
+        <TouchableOpacity onPress={onSignOut} style={styles.logoutButton}>
           <Ionicons name="log-out" size={24} color="#FF0000" />
           <Text style={styles.logoutButtonText}>Déconnexion</Text>
         </TouchableOpacity>

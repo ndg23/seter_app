@@ -13,6 +13,7 @@ import BuyTravelComponent from "../../../screen/buy-travel";
 import StationChoiceScreen from "../../../screen/buy-travel/station";
 import SeatScreen from "../../../screen/buy-travel/seat";
 import DateChoiceScreen from "../../../screen/buy-travel/date";
+import ListTicketScreen from "../../../screen/list-ticket";
 
 
 const Tab = createNativeStackNavigator()
@@ -63,6 +64,21 @@ export default function Router() {
                             }}
                         />
 
+                        <Tab.Screen
+                            name="Ticket"
+                            component={ListTicketScreen}
+                            options={{
+                                title: "Acceuil",
+                                headerShown: false,
+                                tabBarIcon: ({ color }) => (
+                                    <Entypo
+                                        name="travel"
+                                        size={24}
+                                        color={color}
+                                    />
+                                ),
+                            }}
+                        />
 
                         <Tab.Screen
                             name="Station"
@@ -111,7 +127,7 @@ export default function Router() {
                             }}
                         />
 
-<Tab.Screen
+                        <Tab.Screen
                             name="Setting"
                             component={SettingScreen}
                             options={{
