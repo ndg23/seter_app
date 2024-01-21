@@ -46,7 +46,7 @@ const StationChoiceScreen = () => {
         style={styles.stationList}
       />
       {selectedStation && (
-        <TouchableOpacity style={styles.continueButton} onPress={() => navigation.navigate("Seat")}>
+        <TouchableOpacity style={styles.continueButton} onPress={() => navigation.navigate("Seat",{selectedStation})}>
           <Text style={styles.continueButtonText}>Continuer</Text>
         </TouchableOpacity>
       )}

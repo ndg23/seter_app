@@ -111,6 +111,21 @@ export default function Router() {
                             }}
                         />
 
+<Tab.Screen
+                            name="Setting"
+                            component={SettingScreen}
+                            options={{
+                                title: "Setting",
+                                headerShown: false,
+                                tabBarIcon: ({ color }) => (
+                                    <Entypo
+                                        name="setting"
+                                        size={24}
+                                        color={color}
+                                    />
+                                ),
+                            }}
+                        />
                     </Tab.Navigator>
                 </> : <>
 

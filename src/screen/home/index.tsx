@@ -17,7 +17,7 @@ const HomeScreen = () => {
                 <CardComponent balance={0} currency={''} cardNumber={''} />
             </View>
             <View style={styles.menu}>
-                <TouchableOpacity onPress={() => navigation.navigate("Moi")} style={styles.iconContainer}>
+                <TouchableOpacity onPress={() => navigation.navigate("Setting")} style={styles.iconContainer}>
                     <Ionicons name={'settings-sharp'} size={40} color={"#8A131F"} />
                 </TouchableOpacity>
                 <TouchableOpacity  style={styles.iconContainer}>

@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -6,6 +7,7 @@ const SeatScreen = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
   const [selectedSeats, setSelectedSeats] = useState<number>(0);
   const [selectedClass, setSelectedClass] = useState<string | null>(null);
+  const navigation = useNavigation<any>();
 
   const renderSeat = (seatNumber, isReserved) => (
     <TouchableOpacity
@@ -81,8 +83,8 @@ const SeatScreen = () => {
           <Icon name="arrow-forward" size={24} color="#3498db" />
         </TouchableOpacity>
       </View>
-      {currentSlide > 0 && selectedSeats > 0 && selectedClass && (
-        <TouchableOpacity style={styles.continueButton} onPress={() => console.log('Continue')}>
+      {currentSlide > 0 && selectedClass && (
+        <TouchableOpacity style={styles.continueButton} onPress={() => navigation.navigate("Date")}>
           <Text style={styles.continueButtonText}>Continuer</Text>
         </TouchableOpacity>
       )}
