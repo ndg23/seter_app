@@ -10,6 +10,9 @@ import { useAuthContext } from "../../context/auth/auth.context";
 import AuthStack from "./auth.stack";
 import SettingScreen from "../../../screen/setting";
 import BuyTravelComponent from "../../../screen/buy-travel";
+import StationChoiceScreen from "../../../screen/buy-travel/station";
+import SeatScreen from "../../../screen/buy-travel/seat";
+import DateChoiceScreen from "../../../screen/buy-travel/date";
 
 
 const Tab = createNativeStackNavigator()
@@ -44,7 +47,7 @@ export default function Router() {
                             }}
                         />
 
-<Tab.Screen
+                        <Tab.Screen
                             name="Travel"
                             component={BuyTravelComponent}
                             options={{
@@ -59,7 +62,54 @@ export default function Router() {
                                 ),
                             }}
                         />
-                     
+
+
+                        <Tab.Screen
+                            name="Station"
+                            component={StationChoiceScreen}
+                            options={{
+                                title: "Station",
+                                headerShown: false,
+                                tabBarIcon: ({ color }) => (
+                                    <Entypo
+                                        name="phone"
+                                        size={24}
+                                        color={color}
+                                    />
+                                ),
+                            }}
+                        />
+                        <Tab.Screen
+                            name="Seat"
+                            component={SeatScreen}
+                            options={{
+                                title: "Seat",
+                                headerShown: false,
+                                tabBarIcon: ({ color }) => (
+                                    <Entypo
+                                        name="seat"
+                                        size={24}
+                                        color={color}
+                                    />
+                                ),
+                            }}
+                        />
+
+                        <Tab.Screen
+                            name="Date"
+                            component={DateChoiceScreen}
+                            options={{
+                                title: "Date",
+                                headerShown: false,
+                                tabBarIcon: ({ color }) => (
+                                    <Entypo
+                                        name="fullname"
+                                        size={24}
+                                        color={color}
+                                    />
+                                ),
+                            }}
+                        />
 
                     </Tab.Navigator>
                 </> : <>
