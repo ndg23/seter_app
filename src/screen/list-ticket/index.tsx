@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, FlatList } from 'react-native
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-const ListTicketScreen = () => {
+const ListTicketScreen = ({ navigation }) => {
   const ticketData = [
     { id: '1', trainNumber: 'T123', departure: 'City A', destination: 'City B', date: '2024-03-15', time: '10:30 AM', seat: 'Car 5, Seat 12' },
     { id: '2', trainNumber: 'T456', departure: 'City C', destination: 'City D', date: '2024-03-16', time: '02:45 PM', seat: 'Car 3, Seat 7' },
@@ -11,7 +11,7 @@ const ListTicketScreen = () => {
   ];
 
   const renderItem = ({ item }) => (
-    <TouchableOpacity style={styles.ticketItem}>
+    <TouchableOpacity style={styles.ticketItem} onPress={() => navigation.navigate("TicketAbout")}>
       <View style={styles.ticketIcon}>
         <Ionicons name="train-outline" size={30} color="#007AFF" />
       </View>
@@ -50,11 +50,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color:"black",
+    color: "black",
     marginBottom: 20,
   },
   ticketList: {
     flex: 1,
+    flexDirection: "column",
   },
   ticketItem: {
     flexDirection: 'row',

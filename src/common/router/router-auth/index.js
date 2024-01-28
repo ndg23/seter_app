@@ -17,6 +17,7 @@ import ListTicketScreen from "../../../screen/list-ticket";
 import EmailUpdateScreen from "../../../screen/setting/profile/email";
 import FullnameUpdateScreen from "../../../screen/setting/profile/fullname";
 import ScanScreen from "../../../screen/scan";
+import TrainTicketAboutComponent from "../../components/ticket-details";
 
 
 const Tab = createNativeStackNavigator()
@@ -176,7 +177,7 @@ export default function Router() {
                             }}
                         />
 
-<Tab.Screen
+                        <Tab.Screen
                             name="Scan"
                             component={ScanScreen}
                             options={{
@@ -191,6 +192,23 @@ export default function Router() {
                                 ),
                             }}
                         />
+
+<Tab.Screen
+                            name="TicketAbout"
+                            component={TrainTicketAboutComponent}
+                            options={{
+                                title: "Scan",
+                                headerShown: false,
+                                tabBarIcon: ({ color }) => (
+                                    <Entypo
+                                        name="setting"
+                                        size={24}
+                                        color={color}
+                                    />
+                                ),
+                            }}
+                        />
+
                     </Tab.Navigator>
                 </> : <>
 

@@ -84,11 +84,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
+    marginTop:2,
     paddingVertical: 15,
   },
   selectedStation: {
     borderColor: '#3498db',
-    borderWidth: 2,
+    borderWidth: 1,
   },
   iconContainer: {
     marginRight: 15,
