@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -9,6 +10,7 @@ interface CardComponentProps {
 }
 
 const CardComponent: React.FC<CardComponentProps> = ({ balance, currency, cardNumber }) => {
+  const navigation=useNavigation()
   const handleScanQRCode = () => {
     // Add logic for handling QR code scanning
     console.log('Scanning QR Code...');
@@ -23,7 +25,7 @@ const CardComponent: React.FC<CardComponentProps> = ({ balance, currency, cardNu
         <Text style={[styles.info, { marginLeft: 'auto' ,marginTop:"auto"}]}>ID:123SN45 {cardNumber}</Text>
 
         {/* Scan QR Code Button */}
-        <TouchableOpacity style={styles.scanButton} onPress={handleScanQRCode}>
+        <TouchableOpacity style={styles.scanButton} onPress={() => navigation.navigate("Scan")}>
           <MaterialCommunityIcons name="qrcode-scan" size={70} color="#8A131F" />
         </TouchableOpacity>
       </View>

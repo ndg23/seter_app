@@ -14,6 +14,9 @@ import StationChoiceScreen from "../../../screen/buy-travel/station";
 import SeatScreen from "../../../screen/buy-travel/seat";
 import DateChoiceScreen from "../../../screen/buy-travel/date";
 import ListTicketScreen from "../../../screen/list-ticket";
+import EmailUpdateScreen from "../../../screen/setting/profile/email";
+import FullnameUpdateScreen from "../../../screen/setting/profile/fullname";
+import ScanScreen from "../../../screen/scan";
 
 
 const Tab = createNativeStackNavigator()
@@ -132,6 +135,52 @@ export default function Router() {
                             component={SettingScreen}
                             options={{
                                 title: "Setting",
+                                headerShown: false,
+                                tabBarIcon: ({ color }) => (
+                                    <Entypo
+                                        name="setting"
+                                        size={24}
+                                        color={color}
+                                    />
+                                ),
+                            }}
+                        />
+                        <Tab.Screen
+                            name="EmailUpdate"
+                            component={EmailUpdateScreen}
+                            options={{
+                                title: "EmailUpdate",
+                                headerShown: false,
+                                tabBarIcon: ({ color }) => (
+                                    <Entypo
+                                        name="setting"
+                                        size={24}
+                                        color={color}
+                                    />
+                                ),
+                            }}
+                        />
+                        <Tab.Screen
+                            name="FullnameUpdate"
+                            component={FullnameUpdateScreen}
+                            options={{
+                                title: "FullnameUpdate",
+                                headerShown: false,
+                                tabBarIcon: ({ color }) => (
+                                    <Entypo
+                                        name="setting"
+                                        size={24}
+                                        color={color}
+                                    />
+                                ),
+                            }}
+                        />
+
+<Tab.Screen
+                            name="Scan"
+                            component={ScanScreen}
+                            options={{
+                                title: "Scan",
                                 headerShown: false,
                                 tabBarIcon: ({ color }) => (
                                     <Entypo

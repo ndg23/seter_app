@@ -6,6 +6,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Entypo from 'react-native-vector-icons/Entypo';
 
 import { useAuthContext } from '../../common/context/auth/auth.context';
+import { useNavigation } from '@react-navigation/native';
 
 // Custom Header Component
 const Header: React.FC = () => {
@@ -29,7 +30,7 @@ const SettingScreen: React.FC = () => {
   const [distanceUnit, setDistanceUnit] = React.useState('kilomètres');
   const [travelMode, setTravelMode] = React.useState('voiture');
   const { signin ,onSignOut} = useAuthContext()
-
+const navigation=useNavigation()
   const toggleNotification = () => setNotification(!notification);
   const toggleDarkMode = () => setDarkMode(!darkMode);
   const toggleEmailNotification = () => setEmailNotification(!emailNotification);
@@ -52,13 +53,13 @@ const SettingScreen: React.FC = () => {
         <Text style={styles.sectionTitle}>Informations Personnelles</Text>
       
 
-        <TouchableOpacity onPress={changeTravelMode} style={styles.settingItem}>
+        <TouchableOpacity onPress={()=>navigation.navigate("FullnameUpdate")} style={styles.settingItem}>
           <FontAwesome5 name="user-alt" size={24} color="#007AFF" />
           <Text style={{ marginLeft: 8, color: "black" }}> Nom</Text>
           <Text style={styles.languageText}>@Anto</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={changeTravelMode} style={styles.settingItem}>
+        <TouchableOpacity onPress={()=>navigation.navigate("EmailUpdate")} style={styles.settingItem}>
           <Entypo name="email" size={24} color="#007AFF" />
           <Text style={{ marginLeft: 8, color: "black" }}> Email</Text>
           <Text style={styles.languageText}>modifier</Text>
