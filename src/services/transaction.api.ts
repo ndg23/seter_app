@@ -10,7 +10,7 @@ const create = async (data: any) => {
     }
 };
 
-const getTravels = async () => {
+const getTransactions = async () => {
     try {
         const res = await http.get(`${RES}/`);
         return res;

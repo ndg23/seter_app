@@ -31,9 +31,9 @@ const signup = async (data: any) => {
 const getTravel = (user:string) => {
     return http.get(`${RES}`);
 };
-const AuthService = {
+const TicketService = {
     signup,
     getTravel
 };
 
-export default AuthService;
+export default TicketService;
