@@ -1,4 +1,4 @@
-package com.seter_app
+package com.transita
 
 import android.app.Application
 import com.facebook.react.PackageList

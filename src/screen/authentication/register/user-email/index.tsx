@@ -15,6 +15,8 @@ const AddEmailScreen = () => {
   const data = route.params;
 
   const checkIfEmailExist = async () => {
+    navigation.navigate('Fullname', { ...data, email });
+
     try {
       setLoad(true);
       const res = await UserService.checkEmail({ email });

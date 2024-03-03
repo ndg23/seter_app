@@ -54,7 +54,7 @@ export const getData = async (key:string) => {
 
 
 // Function to open an external link
-export const openExternalLink = url => {
+export const openExternalLink = (url: string) => {
   return Linking.openURL(url)
     .then(() => {
       console.log('Link opened successfully');
@@ -66,12 +66,12 @@ export const openExternalLink = url => {
 };
 
 // Function to format WiFi data
-export const formatWifiData = wifiData => {
+export const formatWifiData = (wifiData: string) => {
   // Split the WiFi data into parts and filter out empty parts
-  const dataParts = wifiData.split(';').filter(part => part.trim() !== '');
+  const dataParts = wifiData.split(';').filter((part: string) => part.trim() !== '');
 
   // Format each part as key-value pairs and join them with newline
-  const formattedData = dataParts.map(part => {
+  const formattedData = dataParts.map((part: { split: (arg0: string) => [any, any]; }) => {
     const [key, value] = part.split(':');
     return `${key}: ${value}`;
   });
@@ -80,7 +80,7 @@ export const formatWifiData = wifiData => {
 };
 
 // Function to get the country of origin from a barcode
-export const getCountryOfOriginFromBarcode = barcode => {
+export const getCountryOfOriginFromBarcode = (barcode: string) => {
   // Extract the first three digits of the barcode as the prefix
   const prefix = parseInt(barcode.substring(0, 3), 10);
 
