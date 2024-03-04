@@ -26,7 +26,7 @@ const CardComponent: React.FC<CardComponentProps> = ({ balance, currency, cardNu
 
         {/* Scan QR Code Button */}
         <TouchableOpacity style={styles.scanButton} onPress={() => navigation.navigate("Scan")}>
-          <MaterialCommunityIcons name="qrcode-scan" size={70} color="#8A131F" />
+          <MaterialCommunityIcons name="qrcode-scan" size={70} color="#02bee3" />
         </TouchableOpacity>
       </View>
     </View>
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 5,
     borderTopEndRadius: 10,
     borderTopLeftRadius: 10,
-    borderTopColor: '#8A131F',
+    borderTopColor: '#02bee3',
     borderRadius: 10,
     width: 370,
     height: 150,
@@ -54,11 +54,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: '900',
-    color: '#8A131F',
+    color: '#02bee3',
   },
   subtitle: {
     fontSize: 16,
-    color: '#8A131F',
+    color: '#02bee3',
   },
   info: {
     fontSize: 14,

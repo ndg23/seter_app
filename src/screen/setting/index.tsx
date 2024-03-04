@@ -133,7 +133,7 @@ const navigation=useNavigation()
 
       {/* Copyright Section */}
       <View style={styles.copyrightContainer}>
-        <Text style={styles.copyrightText}>© 2024 Setapp</Text>
+        <Text style={styles.copyrightText}>© 2024 Transita</Text>
       </View>
     </ScrollView>
   );
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
   },
   copyrightText: {
     fontSize: 12,
-    color: '#777',
+    color: '#000',
   },
 
   logoutButton: {

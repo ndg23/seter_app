@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     borderColor: '#e0e0e0',
     backgroundColor: '#fff',
     padding: 16,
-    margin: 16,
+    marginBottom: 8,
+    marginHorizontal:5,
     borderRadius: 15,
   },
   trainName: {

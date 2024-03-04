@@ -23,8 +23,9 @@ import TrainTicketAboutComponent from "../../components/ticket-details";
 const Tab = createNativeStackNavigator()
 
 export default function Router() {
-    const { signin } = useAuthContext()
+    // const { signin } = useAuthContext()
     console.log(signin);
+    const signin=true
     return (
         <NavigationContainer>
             {

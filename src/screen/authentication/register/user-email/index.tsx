@@ -56,9 +56,9 @@ const AddEmailScreen = () => {
 
       <TouchableOpacity style={styles.button} onPress={checkIfEmailExist}>
         {load ? (
-          <ActivityIndicator size={30} color="#8A131F" />
+          <ActivityIndicator size={30} color="#02bee3" />
         ) : (
-          <Octicons name="arrow-right" color="#8A131F" size={30} />
+          <Octicons name="arrow-right" color="#02bee3" size={30} />
         )}
       </TouchableOpacity>
     </View>
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 25,
     fontWeight: '700',
-    color: '#8A131F',
+    color: '#02bee3',
   },
   description: {
     color: 'black',

@@ -53,7 +53,7 @@ function App(): JSX.Element {
   return (
     <SafeAreaView style={styles.container}>
       <Provider store={store}>
-        <PersistGate loading={<ActivityIndicator size={25} color="#8A131F" />} persistor={persistor}>
+        <PersistGate loading={<ActivityIndicator size={25} color="#02bee3" />} persistor={persistor}>
           <AuthContextProvider>
             <UserContextProvider>
                 <Router />
