@@ -20,16 +20,16 @@ const HomeScreen = () => {
             </View>
             <View style={styles.menu}>
                 <TouchableOpacity onPress={() => navigation.navigate("Setting")} style={styles.iconContainer}>
-                    <Ionicons name={'settings-sharp'} size={40} color={"#02bee3"} />
+                    <Ionicons name={'settings-sharp'} size={40} color={"#FF3C38"} />
                 </TouchableOpacity>
                 <TouchableOpacity  style={styles.iconContainer}>
-                    <Ionicons name={'location-sharp'} size={40} color={"#02bee3"} />
+                    <Ionicons name={'location-sharp'} size={40} color={"#FF3C38"} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate("Station")} style={styles.iconContainer}>
-                    <MaterialIcons name={'add'} size={40} color={"#02bee3"} />
+                    <MaterialIcons name={'add'} size={40} color={"#FF3C38"} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate("Ticket")} style={styles.iconContainer}>
-                    <MaterialCommunityIcons name={'cards'} size={40} color={"#02bee3"} />
+                    <MaterialCommunityIcons name={'cards'} size={40} color={"#FF3C38"} />
                 </TouchableOpacity>
             </View>
             {/* Composant d'alerte au milieu */}

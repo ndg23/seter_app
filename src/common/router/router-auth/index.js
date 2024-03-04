@@ -18,6 +18,7 @@ import EmailUpdateScreen from "../../../screen/setting/profile/email";
 import FullnameUpdateScreen from "../../../screen/setting/profile/fullname";
 import ScanScreen from "../../../screen/scan";
 import TrainTicketAboutComponent from "../../components/ticket-details";
+import AppNameCenter from "../../../screen/app-name";
 
 
 const Tab = createNativeStackNavigator()
@@ -39,7 +40,7 @@ export default function Router() {
                     >
                         <Tab.Screen
                             name="Home"
-                            component={HomeScreen}
+                            component={AppNameCenter}
                             options={{
                                 title: "Acceuil",
                                 headerShown: false,

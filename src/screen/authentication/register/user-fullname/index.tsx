@@ -80,7 +80,7 @@ import AuthService from '../../../../services/auth.api';
             style={{
               fontSize: 25,
               fontWeight: '700',
-              color: '#02bee3',
+              color: '#FF3C38',
             }}>
             Quel est votre nom ?
           </Text>
@@ -96,7 +96,7 @@ import AuthService from '../../../../services/auth.api';
           <TouchableOpacity
             style={styles.button}
             onPress={handleFormSubmit}>
-            {loadingForm ? <ActivityIndicator size={30} color='#02bee3' /> : <Octicons name="arrow-right" color="#02bee3" size={30} />
+            {loadingForm ? <ActivityIndicator size={30} color='#FF3C38' /> : <Octicons name="arrow-right" color="#FF3C38" size={30} />
             }
           </TouchableOpacity>
         </View>
@@ -128,7 +128,7 @@ import AuthService from '../../../../services/auth.api';
     },
     buttonText: {
       fontSize: 18,
-      color: '#02bee3',
+      color: '#FF3C38',
     },
     input: {
       height: 50,
